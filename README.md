@@ -7,8 +7,8 @@
 |password                   |string                     |null: false               |
 |family_name                |string                     |null: false               |
 |first_name                 |string                     |null: false               |
-|family_name_furigana       |string                     |null: false               |
-|first_name_furigana        |string                     |null: false               |
+|family_name_kana           |string                     |null: false               |
+|first_name_kana            |string                     |null: false               |
 |birthday                   |date                       |null: false               |
 
 ## Association
@@ -25,7 +25,7 @@
 |---------------------------|---------------------------|--------------------------|
 |name                       |string                     |null: false               |
 |category                   |string                     |null: false               |
-|text                       |string                     |null: false               |
+|description                |string                     |null: false               |
 |status                     |integer                    |null: false               |
 |delivery_charge_bearer	    |integer                    |null: false               |
 |prefecture_id              |integer                    |null: false               |
@@ -34,10 +34,10 @@
 
 ## Association
 -belongs_to :user
--has_many :new_items
 
 
- ## new_itemsテーブル
+
+ ## new_itemテーブル
 
 |Column                     |Type                       |Options                   |
 |---------------------------|---------------------------|--------------------------|
@@ -53,7 +53,7 @@
 -belongs_to :new_item
 
 
-## purchase_detailsテーブル
+## destinationテーブル
 
 |Column                     |Type                       |Options                   |
 |---------------------------|---------------------------|--------------------------|
