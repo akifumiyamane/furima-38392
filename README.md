@@ -25,9 +25,9 @@
 |---------------------------|---------------------------|--------------------------|
 |name                       |string                     |null: false               |
 |category_id                |integer                    |null: false               |
-|description                |text                       |null: false               |
-|status                     |string                     |null: false               |
-|delivery_charge_bearer	    |string                     |null: false               |
+|description_id             |integer                    |null: false               |
+|status_id                  |integer                    |null: false               |
+|delivery_charge_bearer_id  |integer                    |null: false               |
 |prefecture_id              |integer                    |null: false               |
 |delivery_days              |string                     |null: false               |
 |price                      |string                     |null: false               |
@@ -35,7 +35,7 @@
 
 ## Association
 -belongs_to :user
-
+-has_one :purchase_record
 
 
 
@@ -43,9 +43,12 @@
 
 |Column                     |Type                       |Options                   |
 |---------------------------|---------------------------|--------------------------|
+|user                       |reference                  |foreign_key :true         |
+|item                       |reference                  |foreign_key :true         |
 
 -belongs_to :user
--belongs_to :destination
+-has_one :destination
+-belongs_to :item
 
 
 ## destinationsテーブル
@@ -60,4 +63,4 @@
 |purchase_record           |reference                  |foreign_key: true         |
 
 ## Association 
--has_many :purchase_records
+-belongs_to :purchase_records
