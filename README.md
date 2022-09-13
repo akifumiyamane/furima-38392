@@ -31,6 +31,7 @@
 |prefecture_id              |integer                    |null: false               |
 |delivery_days              |string                     |null: false               |
 |price                      |string                     |null: false               |
+|user                       |reference                  |foreign_key :true         |
 
 ## Association
 -belongs_to :user
@@ -42,16 +43,9 @@
 
 |Column                     |Type                       |Options                   |
 |---------------------------|---------------------------|--------------------------|
-|seller                     |string                     |null: false               |
-|category                   |string                     |null: false               |
-|status                     |integer                    |null: false               |
-|delivery_charge_bearer     |integer                    |null: false               |
-|prefecture_id              |integer                    |null: false               |
-|delivery_days              |integer                    |null: false               |
 
-## Association
 -belongs_to :user
--has_one :destination
+-belongs_to :destination
 
 
 ## destinationsテーブル
@@ -59,12 +53,11 @@
 |Column                     |Type                       |Options                   |
 |---------------------------|---------------------------|--------------------------|
 |code                       |string                     |null: false               |
-|post_number                |string                     |null: false               |
 |prefecture_id              |integer                    |null: false               |
 |address                    |string                     |null: false               |
 |building                   |string                     |                          |
 |phone                      |string                     |null: false               |
-|purchase_record_id         |reference                  |foreign_key: true         |
+|purchase_record           |reference                  |foreign_key: true         |
 
 ## Association 
--has_one :purchase_record
+-has_many :purchase_records
