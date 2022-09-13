@@ -13,7 +13,7 @@
 
 ## Association
 -has_many :items
--has_many :new_items
+-has_many : purchase_records
 
 
 
@@ -34,11 +34,11 @@
 
 ## Association
 -belongs_to :user
--has_one :destination
 
 
 
- ## new_itemテーブル
+
+ ## purchase_recordsテーブル
 
 |Column                     |Type                       |Options                   |
 |---------------------------|---------------------------|--------------------------|
@@ -51,20 +51,20 @@
 
 ## Association
 -belongs_to :user
--belongs_to :new_item
+-has_one :destination
 
 
-## destinationテーブル
+## destinationsテーブル
 
 |Column                     |Type                       |Options                   |
 |---------------------------|---------------------------|--------------------------|
-|code                       |integer                    |null: false               |
+|code                       |string                     |null: false               |
 |post_number                |string                     |null: false               |
-|municipality               |string                     |null: false               |
+|prefecture_id              |integer                    |null: false               |
 |address                    |string                     |null: false               |
 |building                   |string                     |                          |
 |phone                      |string                     |null: false               |
+|purchase_record_id         |reference                  |foreign_key: true         |
 
 ## Association 
--belongs_to :destination
--belongs_to :item
+-has_one :purchase_record
