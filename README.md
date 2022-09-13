@@ -29,7 +29,7 @@
 |status_id                  |integer                    |null: false                   |
 |delivery_charge_bearer_id  |integer                    |null: false                   |
 |prefecture_id              |integer                    |null: false                   |
-|price                      |string                     |null: false                   |
+|price                      |integer                    |null: false                   |
 |user                       |references                 |foreign_key :true, null: false|
 |description                |text                       |null: false                   |
 
