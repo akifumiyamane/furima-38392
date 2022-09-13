@@ -30,7 +30,7 @@
 |delivery_charge_bearer_id  |integer                    |null: false               |
 |prefecture_id              |integer                    |null: false               |
 |price                      |string                     |null: false               |
-|user                       |reference                  |foreign_key :true         |
+|user                       |integer                    |foreign_key :true         |
 
 ## Association
 -belongs_to :user
@@ -42,8 +42,8 @@
 
 |Column                     |Type                       |Options                   |
 |---------------------------|---------------------------|--------------------------|
-|user                       |reference                  |foreign_key :true         |
-|item                       |reference                  |foreign_key :true         |
+|user                       |integer                    |foreign_key :true         |
+|item                       |integer                    |foreign_key :true         |
 
 -belongs_to :user
 -has_one :destination
@@ -59,7 +59,7 @@
 |address                    |string                     |null: false               |
 |building                   |string                     |                          |
 |phone                      |string                     |null: false               |
-|purchase_record           |reference                  |foreign_key: true         |
+|purchase_record            |integer                    |foreign_key: true         |
 
 ## Association 
 -belongs_to :purchase_records
