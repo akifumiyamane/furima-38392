@@ -29,7 +29,6 @@
 |status_id                  |integer                    |null: false               |
 |delivery_charge_bearer_id  |integer                    |null: false               |
 |prefecture_id              |integer                    |null: false               |
-|delivery_days              |string                     |null: false               |
 |price                      |string                     |null: false               |
 |user                       |reference                  |foreign_key :true         |
 
