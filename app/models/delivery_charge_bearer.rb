@@ -6,5 +6,5 @@ class DeliveryChargeBearer < ActiveHash::Base
   ]
 
     include ActiveHash::Associations
-    has_many :iems
+    has_many :items
   end
