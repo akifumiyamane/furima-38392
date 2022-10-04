@@ -2,12 +2,12 @@ class PurchaseRecordsController < ApplicationController
   def index
     @donation_address = DonationAddress.new
     @item = Item.find(params[:item_id])
+    if @item.user == current_user
+      redirect_to root_path
+    end  
   end  
 
-  def new
-    @donation_address = DonationAddress.new
-    @item = Item.find(params[:item_id])
-  end
+
   
   def create
     @item = Item.find(params[:item_id])
