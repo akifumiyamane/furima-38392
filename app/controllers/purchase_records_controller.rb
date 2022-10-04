@@ -4,8 +4,7 @@ class PurchaseRecordsController < ApplicationController
 
   def index
     @donation_address = DonationAddress.new
-    return redirect_to root_path unless current_user.id != @item.user.id
-    if @item.purchase_record != nil
+    if @item.user == current_user || @item.purchase_record != nil
       redirect_to root_path
     end  
   end  
