@@ -13,6 +13,7 @@ RSpec.describe DonationAddress, type: :model do
         expect(@donation_address).to be_valid
       end
       it 'buildingは空でも購入できる' do
+        building = ""
         expect(@donation_address).to be_valid
       end  
     end
