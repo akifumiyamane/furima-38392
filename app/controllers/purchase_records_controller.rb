@@ -1,11 +1,11 @@
 class PurchaseRecordsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_item, only: [:index, :create]
 
   def index
     @donation_address = DonationAddress.new
-    @item = Item.find(params[:item_id])
-    redirect_to root_path unless current_user.id == @item.user.id
-    if @item.user == current_user
+    return redirect_to root_path unless current_user.id != @item.user.id
+    if @item.purchase_record != nil
       redirect_to root_path
     end  
   end  
@@ -13,7 +13,6 @@ class PurchaseRecordsController < ApplicationController
 
   
   def create
-    @item = Item.find(params[:item_id])
     @donation_address = DonationAddress.new(donation_params)
     if @donation_address.valid?
       pay_item
@@ -31,12 +30,16 @@ class PurchaseRecordsController < ApplicationController
   end  
 
   def pay_item
-    Payjp.api_key = "sk_test_8e5378a5b708c19c22786890"  # 自身のPAY.JPテスト秘密鍵を記述しましょう
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]  # 自身のPAY.JPテスト秘密鍵を記述しましょう
     Payjp::Charge.create(
       amount: @item.price,  # 商品の値段
       card: donation_params[:token],    # カードトークン
       currency: 'jpy'                 # 通貨の種類（日本円）
     )
+  end
+  
+  def set_item
+    @item = Item.find(params[:item_id])
   end
 
 
