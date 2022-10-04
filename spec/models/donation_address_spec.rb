@@ -20,10 +20,10 @@ RSpec.describe DonationAddress, type: :model do
       it 'codeが空では購入できない' do
         @donation_address.code = nil
         @donation_address.valid?
-        expect(@donation_address.errors.full_messages).to include("Code can't be blank", "Code is invalid. Include hyphen(-)")  
+        expect(@donation_address.errors.full_messages).to include("Code can't be blank")  
       end
       it 'prefecture_idが未選択だと購入できない' do
-        @donation_address.prefecture_id = 0
+        @donation_address.prefecture_id = 1
         @donation_address.valid?
         expect(@donation_address.errors.full_messages).to include("Prefecture can't be blank")
       end
