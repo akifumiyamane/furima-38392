@@ -1,4 +1,6 @@
 class PurchaseRecordsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @donation_address = DonationAddress.new
     @item = Item.find(params[:item_id])
